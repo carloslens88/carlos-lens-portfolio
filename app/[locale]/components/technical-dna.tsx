@@ -2,6 +2,7 @@ import type { Dictionary } from "@/lib/i18n/dictionary";
 import { skillGroups } from "@/lib/data/skills";
 import { Section } from "./section";
 import { Reveal } from "./reveal";
+import { Spotlight } from "./spotlight";
 import { StackTimeline } from "./stack-timeline";
 
 export function TechnicalDna({ dict }: { dict: Dictionary }) {
@@ -10,7 +11,7 @@ export function TechnicalDna({ dict }: { dict: Dictionary }) {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {skillGroups.map((group, i) => (
           <Reveal key={group.id} delay={(i % 4) * 0.06}>
-            <div className="group h-full rounded-2xl border border-border bg-bg-elevated/60 p-5 transition-colors hover:border-accent/40">
+            <Spotlight className="group h-full rounded-2xl border border-border bg-bg-elevated/60 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40">
               <h3 className="font-mono text-xs uppercase tracking-wider text-accent">
                 {dict.dna.categories[group.id]}
               </h3>
@@ -24,7 +25,7 @@ export function TechnicalDna({ dict }: { dict: Dictionary }) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Spotlight>
           </Reveal>
         ))}
       </div>

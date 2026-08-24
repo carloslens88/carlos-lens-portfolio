@@ -18,6 +18,33 @@
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
 
   --animate-marquee: marquee 32s linear infinite;
+  --animate-orbit: orbit 100s linear infinite;
+  --animate-orbit-reverse: orbit-reverse 100s linear infinite;
+  --animate-pulse-glow: pulse-glow 2.6s ease-in-out infinite;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    box-shadow: 0 0 0 0 rgba(126, 232, 201, 0.35);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 14px 2px rgba(126, 232, 201, 0.35);
+  }
 }
 
 @keyframes marquee {

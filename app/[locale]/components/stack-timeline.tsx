@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import { stackTimeline, totalCareerYears } from "@/lib/data/stack-timeline";
 import { Reveal } from "./reveal";
@@ -13,7 +13,6 @@ const stackColor: Record<string, string> = {
 };
 
 export function StackTimeline({ dict }: { dict: Dictionary }) {
-  const reduce = useReducedMotion();
   const { timeline } = dict.dna;
 
   return (
@@ -27,8 +26,8 @@ export function StackTimeline({ dict }: { dict: Dictionary }) {
       </div>
 
       <motion.div
-        initial={reduce ? undefined : { scaleX: 0 }}
-        whileInView={reduce ? undefined : { scaleX: 1 }}
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         style={{ transformOrigin: "left" }}

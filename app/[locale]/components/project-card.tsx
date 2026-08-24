@@ -2,6 +2,7 @@ import type { Project } from "@/lib/data/projects";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { Reveal } from "./reveal";
+import { Spotlight } from "./spotlight";
 import { ArrowUpRightIcon, GithubIcon } from "./icons";
 
 export function ProjectCard({
@@ -17,7 +18,7 @@ export function ProjectCard({
 }) {
   return (
     <Reveal delay={delay} className="h-full">
-      <article className="group flex h-full flex-col rounded-2xl border border-border bg-bg-elevated/60 p-6 transition-colors hover:border-accent/40 md:p-7">
+      <Spotlight className="flex h-full flex-col rounded-2xl border border-border bg-bg-elevated/60 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 md:p-7">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="font-mono text-[11px] uppercase tracking-wider text-accent">{project.category[locale]}</p>
@@ -68,7 +69,7 @@ export function ProjectCard({
             </a>
           ) : null}
         </div>
-      </article>
+      </Spotlight>
     </Reveal>
   );
 }

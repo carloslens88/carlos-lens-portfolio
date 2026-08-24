@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { CloseIcon, LensMark, MenuIcon } from "./icons";
@@ -11,6 +12,7 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -80,6 +82,11 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           {open ? <CloseIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
         </button>
       </div>
+
+      <motion.div
+        style={{ scaleX: scrollYProgress }}
+        className="h-px origin-left bg-accent"
+      />
 
       {open ? (
         <div className="border-t border-border bg-bg px-6 pb-6 lg:hidden">

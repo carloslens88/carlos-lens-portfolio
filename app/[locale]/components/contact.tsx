@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import { site } from "@/lib/data/site";
 import { Reveal } from "./reveal";
+import { Magnetic } from "./magnetic";
 import { ArrowUpRightIcon, GithubIcon, LinkedinIcon } from "./icons";
 
 export function Contact({ dict }: { dict: Dictionary }) {
@@ -14,13 +15,15 @@ export function Contact({ dict }: { dict: Dictionary }) {
         <p className="mt-5 text-pretty text-base leading-relaxed text-fg-muted md:text-lg">{dict.contact.body}</p>
 
         <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href={`mailto:${site.email}`}
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5"
-          >
-            {dict.contact.ctaEmail}
-            <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          <Magnetic>
+            <a
+              href={`mailto:${site.email}`}
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-bg transition-transform hover:-translate-y-0.5"
+            >
+              {dict.contact.ctaEmail}
+              <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </Magnetic>
           <a
             href={site.linkedinUrl}
             target="_blank"

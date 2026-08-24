@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { experience } from "@/lib/data/experience";
@@ -5,10 +9,21 @@ import { Section } from "./section";
 import { Reveal } from "./reveal";
 
 export function Experience({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    offset: ["start center", "end center"],
+  });
+
   return (
     <Section id="experience" kicker={dict.experience.kicker} heading={dict.experience.heading} intro={dict.experience.intro}>
       <div className="relative">
-        <div className="absolute left-[7px] top-2 bottom-2 hidden w-px bg-border sm:block" />
+        <div ref={trackRef} className="absolute left-[7px] top-2 bottom-2 hidden w-px bg-border sm:block">
+          <motion.div
+            style={{ scaleY: scrollYProgress }}
+            className="h-full w-full origin-top bg-accent"
+          />
+        </div>
         <ol className="space-y-8">
           {experience.map((entry, i) => (
             <Reveal key={entry.id} delay={Math.min(i, 5) * 0.05}>
