@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: "Carlos Lens — Full-Stack Software Engineer",
     description:
-      "Carlos Lens is a full-stack software engineer and engineering manager based in Madrid — 15 years shipping software across four countries, a dozen stacks, and, lately, AI-assisted solo products.",
+      "Carlos Lens is a full-stack software engineer and engineering manager based in Madrid — 15 years shipping software across three countries, a dozen stacks, and, lately, AI-assisted solo products.",
   },
   nav: {
     overview: "Overview",
@@ -20,12 +20,12 @@ const en: Dictionary = {
     eyebrow: "Carlos Lens · Software Engineer · Madrid",
     headline: "I learn the stack, then I ship the system.",
     subhead:
-      "Fifteen years building software across four countries and a dozen stacks — from Java microservices at John Deere and a BMW automation suite at Grant Thornton, to leading engineering at Openbank, and shipping full-stack products solo, end to end.",
+      "Fifteen years building software across three countries and a dozen stacks — from Java microservices at John Deere and a BMW automation suite at Grant Thornton, to leading engineering at Openbank, and shipping full-stack products solo, end to end.",
     ctaPrimary: "See the work",
     ctaSecondary: "Get in touch",
     stats: [
       { value: "15", label: "years in software" },
-      { value: "8", label: "roles, 4 countries" },
+      { value: "8", label: "roles, 3 countries" },
       { value: "4", label: "solo products shipped in 2026" },
     ],
   },
@@ -34,7 +34,7 @@ const en: Dictionary = {
     heading: "A systems engineer who keeps changing systems",
     paragraphs: [
       "Carlos started as a developer in Venezuela in 2011, building internal tools for a hosting company — a Balanced Scorecard app, an ITIL help desk, an Active Directory admin console. Within two years he was leading web projects; within three, he was teaching web frameworks at his own university while running a corporate intranet build on the side.",
-      "The move to Europe in 2014 traded one stack for another — .NET became a QA and test-automation lead role at UST Global on Experian's GDPR compliance push, then a full-stack seat at John Deere in Germany building the microservices behind tractor and implement fleet operations, then three years at Grant Thornton moving between C#/.NET and Java/Spring Boot on BMW's automation suite, with React and Angular on the front end.",
+      "The move to Europe in 2014 landed him in Madrid on a three-year consulting engagement (NCS, on the Achilles South Europe project) — then a .NET QA and test-automation lead role at UST Global on Experian's GDPR compliance push, a full-stack seat at John Deere in Germany building the microservices behind tractor and implement fleet operations, and three years at Grant Thornton moving between C#/.NET and Java/Spring Boot on BMW's automation suite, with React and Angular on the front end.",
       "Since 2023 he's been at Openbank, first as a backend engineer on Java and Spring Boot, promoted in 2025 into engineering management. In parallel, he ships independent full-stack products — real-time apps on the Cloudflare edge, Supabase-backed games, Next.js startups — solo, end to end, for the sake of staying sharp on whatever's current.",
     ],
   },
@@ -52,6 +52,19 @@ const en: Dictionary = {
       devops: "DevOps & CI/CD",
       testing: "Testing & Quality",
       leadership: "Leadership",
+    },
+    timeline: {
+      heading: "15 years, by stack",
+      intro:
+        "Every full-time role, to scale, colored by its primary stack — computed from the same dates in the Experience section below, not eyeballed.",
+      years: "yrs",
+      totalLabel: "total",
+      stackLabels: {
+        java: "Java",
+        dotnet: ".NET",
+        mixed: "Java + .NET",
+        other: "Other (consulting, internal tools)",
+      },
     },
   },
   ai: {
@@ -92,7 +105,7 @@ const en: Dictionary = {
   },
   experience: {
     kicker: "Experience",
-    heading: "Fifteen years, four countries, one pattern",
+    heading: "Fifteen years, three countries, one pattern",
     intro:
       "New domain, new stack, shipped system — from a first job building internal tools in Venezuela to leading engineering at a Spanish bank.",
   },

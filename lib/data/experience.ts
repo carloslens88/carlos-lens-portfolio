@@ -1,3 +1,5 @@
+export type StackCategory = "java" | "dotnet" | "mixed" | "other";
+
 export interface ExperienceEntry {
   id: string;
   company: string;
@@ -6,6 +8,18 @@ export interface ExperienceEntry {
   role: { en: string; es: string };
   description: { en: string; es: string };
   tags: string[];
+  /** ISO "YYYY-MM" — used to compute the stack timeline chart. */
+  start: string;
+  /** ISO "YYYY-MM", or "present". */
+  end: string;
+  /** Primary stack during this role, for the stack timeline chart. */
+  stack: StackCategory;
+  /**
+   * Counted in the stack timeline chart. False for roles that overlap
+   * another full-time position (e.g. evening teaching alongside a
+   * full-time job) so the timeline doesn't double-book that time.
+   */
+  primary: boolean;
 }
 
 export const experience: ExperienceEntry[] = [
@@ -23,6 +37,10 @@ export const experience: ExperienceEntry[] = [
       es: "Se incorporó como backend engineer en Java y Spring Boot, y fue promovido a gestión de ingeniería tras dos años y medio. Actualmente lidera un equipo sin dejar la parte técnica, y participa en la iniciativa del banco para llevar la ingeniería asistida por IA al día a día.",
     },
     tags: ["Java", "Spring Boot", "Engineering Management", "AI-assisted delivery"],
+    start: "2023-03",
+    end: "present",
+    stack: "java",
+    primary: true,
   },
   {
     id: "grant-thornton",
@@ -35,6 +53,10 @@ export const experience: ExperienceEntry[] = [
       es: "Desarrolló y mantuvo aplicaciones web y microservicios para la suite de automatización de BMW, alternando entre C#/.NET y Java/Spring Boot en backend, y React y Angular en frontend, sobre MySQL, Postgres y DynamoDB. Despliegues con Docker, Jenkins y Drone CI en AWS.",
     },
     tags: ["C#/.NET", "Java", "Spring Boot", "React", "Angular", "AWS", "Docker"],
+    start: "2020-03",
+    end: "2023-01",
+    stack: "mixed",
+    primary: true,
   },
   {
     id: "john-deere",
@@ -47,6 +69,10 @@ export const experience: ExperienceEntry[] = [
       es: "Desarrolló microservicios en Java/Spring Boot para dar soporte a las operaciones de flotas de tractores e implementos, sobre MySQL, Postgres y DynamoDB, desplegados en AWS Lambda y Elastic Beanstalk mediante un pipeline de CI/CD en Jenkins.",
     },
     tags: ["Java", "Spring Boot", "AWS Lambda", "DynamoDB", "Jenkins", "DDD/TDD"],
+    start: "2019-01",
+    end: "2020-03",
+    stack: "java",
+    primary: true,
   },
   {
     id: "ust-global",
@@ -59,18 +85,26 @@ export const experience: ExperienceEntry[] = [
       es: "Lideró el desarrollo y la estrategia de testing de la suite de aplicaciones de Experian, incluyendo un proyecto de cumplimiento GDPR. Desarrolló aplicaciones en C#/ASP.NET MVC sobre AWS y Azure, y lideró el testing automatizado con Selenium, Cucumber, SoapUI, Postman y Rest Assured.",
     },
     tags: ["C#", "ASP.NET MVC", "Selenium", "Cucumber", "Test Leadership", "AWS/Azure"],
+    start: "2017-11",
+    end: "2019-01",
+    stack: "dotnet",
+    primary: true,
   },
   {
     id: "ncs",
     company: "NCS — Consultoría Tecnológica",
-    location: { en: "Achilles South Europe", es: "Achilles South Europe" },
+    location: { en: "Madrid, Spain", es: "Madrid, España" },
     period: { en: "Oct 2014 — Oct 2017", es: "Oct 2014 — Oct 2017" },
     role: { en: "Senior Programmer Analyst", es: "Analista Programador Senior" },
     description: {
-      en: "Three years as a senior analyst-programmer on the Achilles South Europe engagement, the project that brought him from Venezuela to Spain.",
-      es: "Tres años como analista programador senior en el proyecto Achilles South Europe, el encargo que lo trajo de Venezuela a España.",
+      en: "Three years as a senior analyst-programmer on the Achilles South Europe engagement — the project that brought him from Venezuela to Spain.",
+      es: "Tres años como analista programador senior en el proyecto Achilles South Europe — el encargo que lo trajo de Venezuela a España.",
     },
     tags: ["Consulting", "Enterprise Systems"],
+    start: "2014-10",
+    end: "2017-10",
+    stack: "other",
+    primary: true,
   },
   {
     id: "ucab-professor",
@@ -83,6 +117,12 @@ export const experience: ExperienceEntry[] = [
       es: "Impartió desarrollo de aplicaciones web en su alma mater, cubriendo CakePHP, Play, Struts2, Zend, ASP.NET MVC, Ruby on Rails y Django — siete frameworks en cinco lenguajes, a sus alumnos.",
     },
     tags: ["Teaching", "CakePHP", "Rails", "Django", "ASP.NET MVC"],
+    start: "2014-01",
+    end: "2014-10",
+    stack: "other",
+    // Taught evenings alongside the full-time role at ACO Rent A Car —
+    // excluded from the stack timeline chart so that time isn't double-booked.
+    primary: false,
   },
   {
     id: "aco-rent-a-car",
@@ -95,6 +135,10 @@ export const experience: ExperienceEntry[] = [
       es: "Lideró el desarrollo del nuevo sitio de reservas y cotización de vehículos y de la intranet corporativa, sobre .NET/WCF contra SQL Server y Oracle, además de desplegar un servidor SharePoint para documentación interna — su primer rol de liderazgo de proyecto.",
     },
     tags: [".NET", "WCF", "SQL Server", "SharePoint", "Project Leadership"],
+    start: "2013-03",
+    end: "2014-10",
+    stack: "dotnet",
+    primary: true,
   },
   {
     id: "dayco-host",
@@ -107,5 +151,9 @@ export const experience: ExperienceEntry[] = [
       es: "Primer puesto tras la universidad: desarrolló una herramienta de Balanced Scorecard, un sistema de Help Desk basado en ITIL, herramientas de gestión de cuentas de Active Directory/Exchange, y DaycoCloud, una aplicación interna de aprovisionamiento de máquinas virtuales.",
     },
     tags: ["ITIL", "Active Directory", "Internal Tools"],
+    start: "2011-09",
+    end: "2013-03",
+    stack: "other",
+    primary: true,
   },
 ];

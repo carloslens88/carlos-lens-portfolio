@@ -31,6 +31,13 @@ export interface Dictionary {
     heading: string;
     intro: string;
     categories: Record<string, string>;
+    timeline: {
+      heading: string;
+      intro: string;
+      years: string;
+      totalLabel: string;
+      stackLabels: Record<"java" | "dotnet" | "mixed" | "other", string>;
+    };
   };
   ai: {
     kicker: string;

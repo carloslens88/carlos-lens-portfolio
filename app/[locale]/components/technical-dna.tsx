@@ -2,6 +2,7 @@ import type { Dictionary } from "@/lib/i18n/dictionary";
 import { skillGroups } from "@/lib/data/skills";
 import { Section } from "./section";
 import { Reveal } from "./reveal";
+import { StackTimeline } from "./stack-timeline";
 
 export function TechnicalDna({ dict }: { dict: Dictionary }) {
   return (
@@ -27,6 +28,7 @@ export function TechnicalDna({ dict }: { dict: Dictionary }) {
           </Reveal>
         ))}
       </div>
+      <StackTimeline dict={dict} />
     </Section>
   );
 }

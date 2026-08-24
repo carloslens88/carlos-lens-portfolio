@@ -4,7 +4,7 @@ const es: Dictionary = {
   meta: {
     title: "Carlos Lens — Ingeniero de Software Full-Stack",
     description:
-      "Carlos Lens es ingeniero de software full-stack y engineering manager en Madrid — 15 años desarrollando software en cuatro países, una docena de stacks y, últimamente, productos en solitario con ayuda de IA.",
+      "Carlos Lens es ingeniero de software full-stack y engineering manager en Madrid — 15 años desarrollando software en tres países, una docena de stacks y, últimamente, productos en solitario con ayuda de IA.",
   },
   nav: {
     overview: "Perfil",
@@ -20,12 +20,12 @@ const es: Dictionary = {
     eyebrow: "Carlos Lens · Ingeniero de Software · Madrid",
     headline: "Aprendo el stack y luego entrego el sistema.",
     subhead:
-      "Quince años desarrollando software en cuatro países y una docena de stacks — desde microservicios en Java en John Deere y la suite de automatización de BMW en Grant Thornton, hasta liderar ingeniería en Openbank y lanzar productos full-stack en solitario, de principio a fin.",
+      "Quince años desarrollando software en tres países y una docena de stacks — desde microservicios en Java en John Deere y la suite de automatización de BMW en Grant Thornton, hasta liderar ingeniería en Openbank y lanzar productos full-stack en solitario, de principio a fin.",
     ctaPrimary: "Ver el trabajo",
     ctaSecondary: "Hablemos",
     stats: [
       { value: "15", label: "años en software" },
-      { value: "8", label: "puestos, 4 países" },
+      { value: "8", label: "puestos, 3 países" },
       { value: "4", label: "productos en solitario en 2026" },
     ],
   },
@@ -34,7 +34,7 @@ const es: Dictionary = {
     heading: "Un ingeniero de sistemas que no deja de cambiar de sistema",
     paragraphs: [
       "Carlos empezó como desarrollador en Venezuela en 2011, construyendo herramientas internas para una empresa de hosting — un Balanced Scorecard, un help desk basado en ITIL, una consola de administración de Active Directory. En dos años ya lideraba proyectos web; en tres, daba clases de frameworks web en su propia universidad mientras llevaba en paralelo el desarrollo de una intranet corporativa.",
-      "El salto a Europa en 2014 cambió un stack por otro — .NET se convirtió en un rol de liderazgo de QA y automatización de tests en UST Global, en el proyecto de cumplimiento GDPR de Experian; después, un puesto full-stack en John Deere en Alemania construyendo los microservicios detrás de las operaciones de flotas de tractores e implementos; y luego tres años en Grant Thornton alternando entre C#/.NET y Java/Spring Boot en la suite de automatización de BMW, con React y Angular en el frontend.",
+      "El salto a Europa en 2014 lo llevó a Madrid en un proyecto de consultoría de tres años (NCS, en el proyecto Achilles South Europe) — después, un rol de liderazgo de QA y automatización de tests en UST Global, en el proyecto de cumplimiento GDPR de Experian; un puesto full-stack en John Deere en Alemania construyendo los microservicios detrás de las operaciones de flotas de tractores e implementos; y tres años en Grant Thornton alternando entre C#/.NET y Java/Spring Boot en la suite de automatización de BMW, con React y Angular en el frontend.",
       "Desde 2023 está en Openbank, primero como backend engineer en Java y Spring Boot, y desde 2025 en gestión de ingeniería tras su promoción. En paralelo, lanza productos full-stack propios — apps en tiempo real sobre el edge de Cloudflare, juegos con Supabase, startups en Next.js — en solitario y de punta a punta, para mantenerse afilado en lo que sea que esté vigente.",
     ],
   },
@@ -52,6 +52,19 @@ const es: Dictionary = {
       devops: "DevOps y CI/CD",
       testing: "Testing y Calidad",
       leadership: "Liderazgo",
+    },
+    timeline: {
+      heading: "15 años, por stack",
+      intro:
+        "Cada puesto a tiempo completo, a escala, coloreado según su stack principal — calculado con las mismas fechas de la sección Experiencia de más abajo, no a ojo.",
+      years: "años",
+      totalLabel: "en total",
+      stackLabels: {
+        java: "Java",
+        dotnet: ".NET",
+        mixed: "Java + .NET",
+        other: "Otro (consultoría, herramientas internas)",
+      },
     },
   },
   ai: {
@@ -92,7 +105,7 @@ const es: Dictionary = {
   },
   experience: {
     kicker: "Experiencia",
-    heading: "Quince años, cuatro países, un mismo patrón",
+    heading: "Quince años, tres países, un mismo patrón",
     intro:
       "Nuevo dominio, nuevo stack, sistema entregado — desde un primer trabajo construyendo herramientas internas en Venezuela hasta liderar ingeniería en un banco español.",
   },
