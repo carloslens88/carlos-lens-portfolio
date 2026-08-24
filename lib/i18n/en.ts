@@ -139,7 +139,7 @@ const en: Dictionary = {
     ctaGithub: "See the code on GitHub",
   },
   footer: {
-    tagline: "Full-stack engineer. Recovering .NET developer. Currently shipping on the edge.",
+    tagline: "Full-stack engineer. Java at the core. Currently shipping on the edge.",
     rights: "All rights reserved.",
     builtWith: "Built with Next.js, deployed for €0.",
   },

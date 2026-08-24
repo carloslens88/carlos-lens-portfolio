@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import { site } from "@/lib/data/site";
 import { skillGroups } from "@/lib/data/skills";
@@ -98,8 +99,8 @@ export function Hero({ dict }: { dict: Dictionary }) {
           <div className="absolute inset-[12%] rounded-full border border-border" />
           <div className="absolute inset-[24%] rounded-full border border-dashed border-border-strong" />
           <div className="absolute inset-[38%] rounded-full bg-[radial-gradient(circle,rgba(126,232,201,0.16),transparent_70%)]" />
-          <div className="absolute inset-[44%] flex items-center justify-center rounded-full border border-accent/40 bg-bg-elevated font-mono text-xs text-accent">
-            CL
+          <div className="absolute inset-[38%] overflow-hidden rounded-full border border-accent/40 bg-bg-elevated shadow-[0_0_40px_-8px_rgba(126,232,201,0.35)]">
+            <Image src="/avatar.png" alt="" fill sizes="200px" className="object-cover" priority />
           </div>
 
           {orbitTerms.map((term, i) => {

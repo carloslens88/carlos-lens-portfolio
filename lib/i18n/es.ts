@@ -139,7 +139,7 @@ const es: Dictionary = {
     ctaGithub: "Ver el código en GitHub",
   },
   footer: {
-    tagline: "Ingeniero full-stack. Ex desarrollador .NET en recuperación. Ahora mismo, en el edge.",
+    tagline: "Ingeniero full-stack. Java en el núcleo. Ahora mismo, en el edge.",
     rights: "Todos los derechos reservados.",
     builtWith: "Construido con Next.js, desplegado por 0 €.",
   },

@@ -4,7 +4,7 @@ export const site = {
   github: "carloslens88",
   githubUrl: "https://github.com/carloslens88",
   linkedinUrl: "https://www.linkedin.com/in/carlos-lens/",
-  email: "hello@carloslens.dev",
+  email: "carloslens88@gmail.com",
   location: "Madrid, Spain",
   // Update once the site's real domain is chosen.
   url: "https://carloslens.dev",
