@@ -33,17 +33,30 @@ npm run build
 
 Outputs static files to `out/`.
 
-## Deploy — Cloudflare Pages (recommended, €0)
+## Deploy — Cloudflare Workers (recommended, €0)
 
-Same recipe as `portfolio-jhenimar`: Workers static assets via Wrangler.
+Same recipe as `portfolio-jhenimar` / `pixels-capsule`: Workers Static
+Assets via Wrangler — `wrangler.jsonc` at the repo root already points to
+`./out`.
 
 ```bash
-npm run build
-npx wrangler pages deploy out --project-name=carlos-lens-portfolio
+npx wrangler login     # once, opens a browser to authorize this machine
+npm run build           # or: npm run deploy (does both in one step)
+npx wrangler deploy
 ```
 
-Or connect the GitHub repo in the Cloudflare dashboard for automatic
-deploys on push — build command `npm run build`, output directory `out`.
+That publishes to `carlos-lens-portfolio.<your-subdomain>.workers.dev`
+immediately. To use your own domain instead: in the Cloudflare dashboard,
+the domain must already be an active zone on your account (added under
+**Websites**, nameservers pointed at Cloudflare), then go to **Workers &
+Pages → carlos-lens-portfolio → Settings → Domains & Routes → Add → Custom
+Domain** and enter it — Cloudflare creates the DNS record and TLS cert for
+you automatically.
+
+For auto-deploy on every `git push`, connect the GitHub repo instead: in
+the dashboard, **Workers & Pages → Create → Import a repository**, pick
+this repo, set the build command to `npm run build` and the deploy command
+to `npx wrangler deploy` (Cloudflare detects `wrangler.jsonc` automatically).
 
 ## Deploy — Vercel (also €0)
 
