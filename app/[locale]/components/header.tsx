@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n";
-import { CloseIcon, MenuIcon } from "./icons";
+import { CloseIcon, LensMark, MenuIcon } from "./icons";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const pathname = usePathname();
@@ -39,8 +39,13 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href={`/${locale}/`} className="font-mono text-sm font-medium tracking-tight text-fg">
-          carlos<span className="text-accent">.</span>lens
+        <Link href={`/${locale}/`} className="group flex items-center gap-2">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-accent/40 bg-accent-soft text-accent transition-transform duration-700 ease-out group-hover:rotate-90">
+            <LensMark className="h-4 w-4" />
+          </span>
+          <span className="font-mono text-sm font-medium tracking-tight text-fg">
+            carlos<span className="text-accent">.</span>lens
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">

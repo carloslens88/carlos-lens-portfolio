@@ -1,3 +1,17 @@
+export function LensMark(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" aria-hidden="true" {...props}>
+      <circle cx="12" cy="12" r="9.25" opacity={0.45} />
+      <path d="M14.31 8 20.05 17.94" />
+      <path d="M9.69 8h11.48" />
+      <path d="M7.38 12 13.12 2.06" />
+      <path d="M9.69 16 3.95 6.06" />
+      <path d="M14.31 16H2.83" />
+      <path d="M16.62 12 10.88 21.94" />
+    </svg>
+  );
+}
+
 export function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
