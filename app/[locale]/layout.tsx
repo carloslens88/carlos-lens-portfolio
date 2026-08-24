@@ -60,8 +60,22 @@ export default async function LocaleLayout({
   const locale = rawLocale;
   const dict = getDictionary(locale);
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.name,
+    url: `${site.url}/${locale}/`,
+    image: `${site.url}/avatar.png`,
+    jobTitle: site.role,
+    description: dict.meta.description,
+    address: { "@type": "PostalAddress", addressLocality: "Madrid", addressCountry: "ES" },
+    worksFor: { "@type": "Organization", name: "Openbank" },
+    sameAs: [site.githubUrl, site.linkedinUrl],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
       <SetHtmlLang locale={locale} />
       <div className="bg-grid pointer-events-none fixed inset-0 -z-10 opacity-[0.5]" />
       <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(126,232,201,0.09),transparent)]" />
