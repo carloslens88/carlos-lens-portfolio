@@ -8,10 +8,14 @@ import type { Dictionary } from "@/lib/i18n/dictionary";
 import type { Locale } from "@/lib/i18n";
 import { CloseIcon, LensMark, MenuIcon } from "./icons";
 
+const SECTION_IDS = ["overview", "dna", "ai", "projects", "experience", "contact"];
+
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null);
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
@@ -19,6 +23,20 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+    );
+    const els = SECTION_IDS.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => el !== null);
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   const otherLocale: Locale = locale === "en" ? "es" : "en";
@@ -33,6 +51,8 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     [dict.nav.experience, "#experience"],
     [dict.nav.contact, "#contact"],
   ];
+
+  const highlighted = hovered ?? active;
 
   return (
     <header
@@ -50,12 +70,33 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
-          {links.map(([label, href]) => (
-            <a key={href} href={href} className="text-sm text-fg-muted transition-colors hover:text-fg">
-              {label}
-            </a>
-          ))}
+        <nav className="hidden items-center gap-0.5 lg:flex" onMouseLeave={() => setHovered(null)}>
+          {links.map(([label, href]) => {
+            const id = href.slice(1);
+            const isActive = active === id;
+            const isHighlighted = highlighted === id;
+            return (
+              <a
+                key={href}
+                href={href}
+                onMouseEnter={() => setHovered(id)}
+                className={`relative rounded-full px-3.5 py-1.5 text-sm transition-colors ${
+                  isActive ? "text-accent" : isHighlighted ? "text-fg" : "text-fg-muted"
+                }`}
+              >
+                {isHighlighted ? (
+                  <motion.span
+                    layoutId="nav-pill"
+                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                    className={`absolute inset-0 z-0 rounded-full border ${
+                      isActive ? "border-accent/30 bg-accent-soft" : "border-border bg-bg-elevated-2"
+                    }`}
+                  />
+                ) : null}
+                <span className="relative z-10">{label}</span>
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
@@ -91,16 +132,24 @@ export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       {open ? (
         <div className="border-t border-border bg-bg px-6 pb-6 lg:hidden">
           <nav className="flex flex-col gap-1 pt-4">
-            {links.map(([label, href]) => (
-              <a
-                key={href}
-                href={href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-2.5 text-sm text-fg-muted transition-colors hover:bg-bg-elevated hover:text-fg"
-              >
-                {label}
-              </a>
-            ))}
+            {links.map(([label, href]) => {
+              const isActive = active === href.slice(1);
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className={`relative rounded-lg py-2.5 pl-4 pr-2 text-sm transition-colors ${
+                    isActive ? "bg-bg-elevated text-accent" : "text-fg-muted hover:bg-bg-elevated hover:text-fg"
+                  }`}
+                >
+                  {isActive ? (
+                    <span className="absolute left-0 top-1/2 h-4 w-0.5 -translate-y-1/2 rounded-full bg-accent" />
+                  ) : null}
+                  {label}
+                </a>
+              );
+            })}
             <Link
               href={switchHref}
               onClick={() => setOpen(false)}
