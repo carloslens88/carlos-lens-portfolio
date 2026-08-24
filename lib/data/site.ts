@@ -6,7 +6,6 @@ export const site = {
   linkedinUrl: "https://www.linkedin.com/in/carlos-lens/",
   email: "carloslens88@gmail.com",
   location: "Madrid, Spain",
-  // Update once the site's real domain is chosen.
-  url: "https://carloslens.dev",
+  url: "https://carloslens.com",
   firstCommitYear: 2011,
 } as const;
