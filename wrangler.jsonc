@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "carlos-lens-portfolio",
+  "account_id": "ab30bc7ce6291314193aecca239f1f11",
   "compatibility_date": "2026-08-01",
   "assets": {
     "directory": "./out",
